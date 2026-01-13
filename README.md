@@ -69,18 +69,6 @@ NODE_ENV=development
 - Add-ons per item: `POST /api/items/:itemId/addons`, `GET /api/items/:itemId/addons`
 - Bookings: `GET /api/items/:id/availability?date=YYYY-MM-DD`, `POST /api/bookings`
 
-For typical request/response examples, see the controllers under [src/controllers](src/controllers).
 
-**Developer notes & tips**
-- Use `npm run dev` for local development (auto-restarts).
-- Keep validation logic in request validators (controllers) and business rules in services.
-- When changing tax or pricing rules, update and add unit tests for the corresponding service.
 
-If you'd like, I can also:
-- add example curl/postman requests,
-- write a short CONTRIBUTING section, or
-- generate unit tests for the `PricingService` and `BookingService`.
 
----
-
-_README updated to explain the repository layout and the reasoning behind major choices._

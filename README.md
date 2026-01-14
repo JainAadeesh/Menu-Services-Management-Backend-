@@ -52,7 +52,7 @@ NODE_ENV=development
 - **[src/controllers](src/controllers)**: Parse request, call services, return responses. This separation makes unit testing easier and prevents controllers from becoming monoliths.
 - **[src/routes](src/routes)**: Declares routes and attaches validation/middleware. Keeping routes declarative simplifies adding endpoints and middleware composition.
 - **[src/middleware](src/middleware)**: Error handling (`errorHandler.js`) and other request-level concerns. Centralizing middleware keeps behavior consistent across endpoints.
-- **[src/utils](src/utils]**: Small helpers (time calculations, validators) to avoid duplicating logic.
+- **[src/utils](src/utils)**: Small helpers (time calculations, validators) to avoid duplicating logic.
 
 **Key Design Decisions — what and why**
 

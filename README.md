@@ -33,6 +33,7 @@ NODE_ENV=development
 - **Run (prod):** `npm start`
 
 **Tech Stack & Why**
+
 - **Express:** fast, minimal HTTP framework for Node.js; the routes and controllers use its middleware pattern. See [src/app.js](src/app.js).
 - **Mongoose:** schema-based ODM for MongoDB; provides validation, hooks, and transactions which simplify models and booking sessions.
 - **Joi:** input validation library used to validate request payloads before business logic runs (keeps controllers small and safe).
@@ -43,6 +44,7 @@ NODE_ENV=development
 - **nodemon (devDependency):** auto-restarts server in development to speed up iteration.
 
 **Project Structure & Rationale**
+
 - **[src/app.js](src/app.js)**: Application bootstrapping and middleware registration. Keeping this small makes it easy to reason about server startup.
 - **[src/config/constants.js](src/config/constants.js)** & **[src/config/database.js](src/config/database.js)**: Centralized configuration and DB connection to avoid duplicating values and to make testing easier.
 - **[src/models](src/models)**: Mongoose schemas. Keeping models isolated ensures a single source of truth for data shape and DB-level behavior (indexes, virtuals).
@@ -53,6 +55,7 @@ NODE_ENV=development
 - **[src/utils](src/utils]**: Small helpers (time calculations, validators) to avoid duplicating logic.
 
 **Key Design Decisions — what and why**
+
 - **Service Layer (Why):** Moves complex domain logic out of controllers; enables re-use (e.g., pricing used by both APIs and scheduled jobs) and easier unit testing.
 - **Tax Inheritance (Why):** Tax is resolved at query/service time from item → subcategory → category. This avoids denormalization and ensures updates at category level immediately reflect across children. Implemented with Mongoose queries/aggregation for performance and correctness.
 - **Pricing Engine (Why):** Supports `static`, `tiered`, and `dynamic` pricing to accommodate common restaurant/service pricing patterns (bulk discounts, time-based offers). Encapsulated in `PricingService.js` to keep rules centralized and testable.
